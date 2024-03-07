@@ -10,6 +10,7 @@ Vagrant.configure("2") do |config|
         db01.vm.provider "virtualbox" do |vb|
             vb.memory = "1600"
         end 
+         db01.vm.provision "shell", path: "mysql.sh" 
     end
 
     #Memcache vm
@@ -20,6 +21,7 @@ Vagrant.configure("2") do |config|
         mc01.vm.provider "virtualbox" do |vb|
             vb.memory = "1600"
         end
+         mc01.vm.provision "shell", path: "memcache.sh" 
     end
 
     #RabbitmQ vm 
@@ -30,6 +32,7 @@ Vagrant.configure("2") do |config|
         rmq01.vm.provider "virtualbox" do |vb|
             vb.memory = "1600"
         end
+         rmq01.vm.provision "shell", path: "rabbitmq.sh"
     end
 
     #tomcat vm
@@ -50,6 +53,7 @@ Vagrant.configure("2") do |config|
         web01.vm.provider "virtualbox" do|vb|
             vb.memory = "1600"
         end
+         web01.vm.provision "shell", path: "nginx.sh" 
     end
 
     end
